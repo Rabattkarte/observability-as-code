@@ -19,7 +19,14 @@ variable "datadog_api_url" {
   default     = "https://app.datadoghq.com"
 
   validation {
-    condition     = contains(["https://app.datadoghq.com", "https://us3.datadoghq.com", "https://us5.datadoghq.com", "https://app.datadoghq.eu", "https://app.ddog-gov.com", "https://ap1.datadoghq.com"], var.datadog_api_url)
+    condition = contains([
+      "https://app.datadoghq.com",
+      "https://us3.datadoghq.com",
+      "https://us5.datadoghq.com",
+      "https://app.datadoghq.eu",
+      "https://app.ddog-gov.com",
+      "https://ap1.datadoghq.com"
+    ], var.datadog_api_url)
     error_message = "The configured Datadog APP url is invalid."
   }
 }
